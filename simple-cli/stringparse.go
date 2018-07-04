@@ -91,29 +91,24 @@ func main() {
 			countCommand.PrintDefaults()
 			os.Exit(1)
 		}
-
-		// If the metric flag is substring, the substring flag is required
+		// If the metric flag is substring, the substring or substringList flag is required
 		if *countMetricPtr == "substring" && *countSubstringPtr == "" && (&countStringList).String() == "[]" {
 			countCommand.PrintDefaults()
 			os.Exit(1)
 		}
-
-		// If the metric flag is not substring, the substring flag must not be used
-		if *countMetricPtr != "substring" && *countSubstringPtr != "" || (&countStringList).String() != "[]" {
-
-			fmt.Println("--substring may only be used with --metrics=substring.")
+		//If the metric flag is not substring, the substring flag must not be used
+		if *countMetricPtr != "substring" && (*countSubstringPtr != "" || (&countStringList).String() != "[]") {
+			fmt.Println("--substring and --substringList may only be used with --metric=substring.")
 			countCommand.PrintDefaults()
 			os.Exit(1)
 		}
-
-		// Choice flag
+		//Choice flag
 		metricChoices := map[string]bool{"chars": true, "words": true, "lines": true, "substring": true}
 		if _, validChoice := metricChoices[*listMetricPtr]; !validChoice {
 			countCommand.PrintDefaults()
 			os.Exit(1)
 		}
-
-		// Print
+		//Print
 		fmt.Printf("textPtr: %s, metricPtr: %s, substringPtr: %v, substringListPtr: %v, uniquePtr: %t\n",
 			*countTextPtr,
 			*countMetricPtr,
@@ -121,6 +116,5 @@ func main() {
 			(&countStringList).String(),
 			*countUniquePtr,
 		)
-
 	}
 }
