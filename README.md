@@ -35,7 +35,7 @@ more than one way to declare the exact same variable and value.
 
 `i := 1` use when need declaration and intialization
 
-`i := 1` use it when don't want Go go infer your data type, but want
+`i := int64(1)` use it when don't want Go go infer your data type, but want
 use `short` method
 
 **long form is considered not idiomatic** `var i int = 1`
