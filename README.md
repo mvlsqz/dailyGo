@@ -66,7 +66,7 @@ similar variable names within a program
 ```go
 var Email string
 var password string
-``
+```
 `Email` starts with a uppercase letter and can be accessed by other
 packages.
 `password` starts with a lowercase letter, and is only
