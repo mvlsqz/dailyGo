@@ -69,5 +69,6 @@ var password string
 ```
 `Email` starts with a uppercase letter and can be accessed by other
 packages.
+
 `password` starts with a lowercase letter, and is only
 accesible inside the package it is declared in.
