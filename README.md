@@ -39,3 +39,11 @@ more than one way to declare the exact same variable and value.
 use `short` method
 
 **long form is considered not idiomatic** `var i int = 1`
+
+# Zero values
+All builtin types have a zero value. Any allocated variable is
+usable even if it never has a value assigned.
+
+In Go, because all values have a zero value, you can't have `undefined` values like some other languages.
+
+For instance, a `boolean` in some languages could be `undefined`, `true`, or `false`, this allowing for three states to the variable. In Go, you can't have more than two states for a boolean value.
